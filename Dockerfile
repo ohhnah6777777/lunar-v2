@@ -4,7 +4,7 @@ ENV PORT=8080
 WORKDIR /app
 COPY ["package.json", "pnpm-lock.yaml*", "./"]
 COPY . .
-RUN npm i -g pnpm && pnpm install
+RUN npm i -g pnpm && pnpm install --frozen-lockfile
 RUN pnpm build
 EXPOSE 8080
 CMD ["pnpm", "start"]
